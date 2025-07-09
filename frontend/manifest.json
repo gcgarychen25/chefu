@@ -1,8 +1,11 @@
 {
-    "name": "chefu",
+    "name": "chefu - Voice Cooking Assistant",
     "short_name": "chefu",
     "start_url": "/",
     "display": "standalone",
+    "theme_color": "#ff6b35",
+    "background_color": "#ffffff",
+    "description": "Voice-activated cooking assistant that helps you cook hands-free",
     "icons": []
-  }
+}
   

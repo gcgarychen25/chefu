@@ -1,0 +1,80 @@
+# CursorRules for chefu Voice Cooking Assistant
+
+## Core Project Principles
+- **Real-time voice interaction**: Always prioritize low-latency, conversational audio processing
+- **Comprehensive debugging**: Add extensive logging with emojis for easy identification
+- **User feedback driven**: Immediately implement user suggestions and iterate based on their experience
+- **Progressive problem solving**: Break complex issues into testable components
+
+## Development Habits Learned
+
+### 1. Debugging Strategy
+- **Always add extensive console logging** with distinctive emojis (🔊 for TTS, 🎤 for audio, 📝 for text, etc.)
+- **Create test endpoints** to isolate issues (e.g., `/ws-simple` for basic WebSocket testing)
+- **Log every step** of complex pipelines (WebSocket connection, OpenAI API, audio processing)
+- **Include timing information** in logs to identify bottlenecks
+- **Show status visually** in the UI so users can see what's happening
+
+### 2. API Integration Patterns
+- **Validate API keys** before attempting connections
+- **Use official API documentation** as source of truth (don't assume formats)
+- **Handle connection failures gracefully** with specific error messages
+- **Test with simplified endpoints** before full integration
+- **Always include required headers** (like `OpenAI-Beta: realtime=v1`)
+
+### 3. User Experience Focus
+- **Show real-time status** in the UI (Speaking, Listening, Processing states)
+- **Provide immediate feedback** for user actions
+- **Display transcriptions** so users know if their speech was understood
+- **Make button states clear** (what will happen when clicked)
+- **Always test audio independently** before complex integrations
+
+### 4. Code Organization
+- **Separate concerns clearly**: WebSocket handling, OpenAI client, audio processing
+- **Use async/await properly** for real-time operations
+- **Handle errors at every level** with specific error types
+- **Create reusable components** for common patterns
+- **Document placeholder locations** clearly for user input needed
+
+### 5. Testing & Iteration
+- **Test incrementally**: Basic WebSocket → Audio streaming → OpenAI integration → Full pipeline
+- **Create test modes** that can be toggled easily
+- **Validate each component** before moving to the next
+- **Always restart servers** after significant changes
+- **Use parallel tool calls** for information gathering
+
+## Technical Standards
+
+### Frontend
+- **State management**: Clear boolean flags for isSpeaking, isListening, isConnected
+- **Audio handling**: Proper VAD pause/resume during TTS to prevent interference
+- **Error display**: User-friendly error messages with technical details in console
+- **Visual feedback**: Status messages in transcript area for transparency
+
+### Backend
+- **Structured logging**: Use logger with emojis and clear message formats
+- **WebSocket management**: Proper connection lifecycle handling
+- **Error propagation**: Catch and log errors at each layer
+- **API client design**: Simple, focused interfaces that can be easily tested
+
+### API Integration
+- **Follow official specs**: Don't assume API formats, always check documentation
+- **Handle rate limits**: Proper error handling for API limitations
+- **Connection management**: Graceful handling of disconnections and reconnections
+- **Data formatting**: Proper base64 encoding for audio, correct event types
+
+## User Communication
+- **Highlight placeholders** clearly when user input is needed
+- **Summarize status** after major changes or fixes
+- **Explain what to expect** before asking user to test
+- **Be specific about errors** rather than generic messages
+- **Update documentation** when patterns change
+
+## File Management
+- **Update requirements.txt** when adding packages
+- **Keep .env.example** current with needed variables
+- **Maintain clean imports** and remove unused dependencies
+- **Use consistent naming** across frontend/backend
+- **Document configuration options** clearly
+
+Remember: The user values iteration speed, visual feedback, and comprehensive debugging. Always err on the side of too much information rather than too little. 

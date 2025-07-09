@@ -1,18 +1,33 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ChefBud‑Voice Prototype</title>
+  <title>chefu - Voice Cooking Assistant</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="manifest" href="/manifest.json" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>ChefBud‑Voice 🍳🎙️</h1>
-  <textarea id="recipe" placeholder="粘贴菜谱文本 …"></textarea>
-  <button id="start">开始烹饪</button>
-  <pre id="transcript"></pre>
+  <div class="container">
+    <h1>chefu - Voice Cooking Assistant</h1>
+    
+    <div class="input-group">
+      <label for="recipe">Recipe Text:</label>
+      <textarea id="recipe" placeholder="Paste your recipe here..."></textarea>
+    </div>
+    
+    <div class="controls">
+      <button id="start" class="btn-primary">Start Cooking</button>
+      <button id="testTTS" class="btn-secondary">Test Audio 🔊</button>
+    </div>
+    
+    <div class="output">
+      <h3>Transcript</h3>
+      <div id="transcript"></div>
+    </div>
+  </div>
+
   <script src="vad.js"></script>
-  <script src="main.js" type="module"></script>
+  <script src="main.js"></script>
 </body>
 </html>
