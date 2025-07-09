@@ -3,9 +3,9 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "chefbud-voice"
-version = "0.1.0"
-description = "Voice‑interactive cooking assistant prototype"
+name = "chefu"
+version = "0.1.1"
+description = "Voice‑interactive cooking assistant"
 readme = "README.md"
 requires-python = ">=3.11"
 authors = [{name = "Your Name", email = "you@example.com"}]
