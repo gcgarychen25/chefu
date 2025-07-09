@@ -35,6 +35,7 @@
 - **Handle errors at every level** with specific error types
 - **Create reusable components** for common patterns
 - **Document placeholder locations** clearly for user input needed
+- **Audio pipeline debugging**: When audio sends but no responses come back, check format compatibility first
 
 ### 5. Testing & Iteration
 - **Test incrementally**: Basic WebSocket → Audio streaming → OpenAI integration → Full pipeline
@@ -62,6 +63,7 @@
 - **Handle rate limits**: Proper error handling for API limitations
 - **Connection management**: Graceful handling of disconnections and reconnections
 - **Data formatting**: Proper base64 encoding for audio, correct event types
+- **Audio format critical**: OpenAI Realtime API requires int16 PCM, not float32 - always convert browser float32 to int16
 
 ## User Communication
 - **Highlight placeholders** clearly when user input is needed

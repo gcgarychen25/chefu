@@ -15,13 +15,22 @@ class AudioProcessor:
         self.settings = get_settings()
 
     def downsample(self, pcm_bytes: bytes) -> bytes:
+        # Convert browser float32 PCM to numpy array
         audio = np.frombuffer(pcm_bytes, dtype=np.float32)
+        
+        # Resample from 48kHz to 24kHz
         audio_24k = resampy.resample(
             audio,
             self.settings.sampling_rate_in,
             self.settings.sampling_rate_out,
         )
-        return audio_24k.astype(np.float32).tobytes()
+        
+        # Convert float32 to int16 PCM for OpenAI (pcm16 format)
+        # Clamp to [-1, 1] range and scale to int16 range
+        audio_clamped = np.clip(audio_24k, -1.0, 1.0)
+        audio_int16 = (audio_clamped * 32767).astype(np.int16)
+        
+        return audio_int16.tobytes()
 
     async def stream_chunks(self, websocket):
         """
